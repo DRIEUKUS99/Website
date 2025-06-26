@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="nl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamphuis-IT | IT Dienstverlening in Nederland</title>
+    <base target="_self">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@preline/preline@2.0.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-laptop-code text-primary-600 text-2xl"></i>
+                    <a href="#" class="text-2xl font-bold text-primary-600" onclick="navigate(event, 'home')">Kamphuis-IT</a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'home')">Home</a>
+                    <a href="#" class="font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'diensten')">Diensten</a>
+                    <a href="#" class="font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'over-ons')">Over Ons</a>
+                    <a href="#" class="font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'contact')">Contact</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden text-gray-600 dark:text-gray-300">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#" class="py-2 font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'home')">Home</a>
+                <a href="#" class="py-2 font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'diensten')">Diensten</a>
+                <a href="#" class="py-2 font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'over-ons')">Over Ons</a>
+                <a href="#" class="py-2 font-medium hover:text-primary-600 transition-colors" onclick="navigate(event, 'contact')">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-gradient-to-r from-primary-700 to-primary-500 text-white py-20">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">IT-oplossingen voor uw bedrijf</h1>
+                    <p class="text-xl mb-8 opacity-90">Kamphuis-IT levert hoogwaardige IT-diensten aan bedrijven door heel Nederland. Wij zorgen ervoor dat uw technologie naadloos werkt.</p>
+                    <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                        <button onclick="navigate(event, 'contact')" class="bg-white text-primary-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition-colors hover-scale">
+                            Neem contact op
+                        </button>
+                        <button onclick="navigate(event, 'diensten')" class="bg-transparent border-2 border-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium transition-colors hover-scale">
+                            Onze diensten
+                        </button>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="IT Services" 
+                         class="rounded-lg shadow-2xl max-w-full h-auto hover-scale">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="diensten" class="py-20 bg-gray-100 dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl font-bold mb-4">Onze IT-diensten</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">Wij bieden een breed scala aan IT-diensten om uw bedrijf te ondersteunen en te laten groeien.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden hover-scale transition-transform fade-in">
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-network-wired text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Netwerkbeheer</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Professioneel beheer en onderhoud van uw bedrijfsnetwerk voor maximale beschikbaarheid en beveiliging.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden hover-scale transition-transform fade-in">
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-shield-alt text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Cyberbeveiliging</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Geavanceerde beveiligingsoplossingen om uw bedrijfsdata te beschermen tegen cyberbedreigingen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden hover-scale transition-transform fade-in">
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-cloud text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Cloudoplossingen</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Implementatie en migratie naar cloudplatformen voor flexibiliteit en schaalbaarheid.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden hover-scale transition-transform fade-in">
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-headset text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">IT-ondersteuning</h3>
+                            <p class="text-gray-600 dark:text-gray-300">24/7 helpdesk en technische ondersteuning voor al uw IT-vragen en problemen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden hover-scale transition-transform fade-in">
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-database text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Data Management</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Oplossingen voor dataopslag, back-up en herstel om uw kritieke bedrijfsdata te beschermen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden hover-scale transition-transform fade-in">
+                        <div class="p-6">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-mobile-alt text-primary-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3">Softwareontwikkeling</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Op maat gemaakte softwareoplossingen die perfect aansluiten bij uw bedrijfsprocessen.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="over-ons" class="py-20">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col lg:flex-row items-center">
+                    <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10 fade-in">
+                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEsYK9jkKD6EQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730741439919?e=1755734400&v=beta&t=2zGgR7YynkOBp8x446FbutI1qz4lG82QJYwjA_WWmhY" 
+                             alt="Dirk Kamphuis" 
+                             class="rounded-lg shadow-xl w-full h-auto hover-scale">
+                    </div>
+                    <div class="lg:w-1/2 fade-in">
+                        <h2 class="text-3xl font-bold mb-6">Over Kamphuis-IT</h2>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">Kamphuis-IT is opgericht door Dirk Kamphuis met als doel hoogwaardige IT-dienstverlening te bieden aan bedrijven in Nederland. Met meer dan 15 jaar ervaring in de IT-sector hebben wij een uitgebreid netwerk van specialisten die klaarstaan om uw bedrijf te ondersteunen.</p>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">Onze filosofie is simpel: wij begrijpen dat technologie een cruciale rol speelt in het succes van uw bedrijf. Daarom streven wij ernaar om betrouwbare, schaalbare en kosteneffectieve IT-oplossingen te bieden die perfect aansluiten bij uw behoeften.</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-14 h-14 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user-tie text-primary-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Dirk Kamphuis</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">Oprichter & CEO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-20 bg-primary-50 dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16 fade-in">
+                    <h2 class="text-3xl font-bold mb-4">Wat onze klanten zeggen</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300">Ontdek waarom bedrijven in heel Nederland vertrouwen op Kamphuis-IT voor hun IT-behoeften.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover-scale transition-transform fade-in">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">"Kamphuis-IT heeft ons bedrijf geholpen met een volledige cloudmigratie. Het proces was naadloos en we hebben sindsdien geen downtime meer gehad."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Marieke van Dijk</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">Directeur, Van Dijk Logistics</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover-scale transition-transform fade-in">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">"De beveiligingsaudit van Kamphuis-IT heeft verschillende kwetsbaarheden in ons systeem blootgelegd. Hun oplossingen hebben onze dataveiligheid aanzienlijk verbeterd."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Thomas Jansen</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">IT Manager, Jansen & Partners</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md p-6 hover-scale transition-transform fade-in">
+                        <div class="flex items-center mb-4">
+                            <div class="text-yellow-400 mr-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">"De helpdesk van Kamphuis-IT is altijd beschikbaar en lost problemen snel op. Het is een verademing om zo'n betrouwbare IT-partner te hebben."</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 mr-4 overflow-hidden">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Client" class="w-full h-full object-cover">
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Lisa de Vries</h4>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">Office Manager, De Vries Architecten</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-100 dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden">
+                    <div class="md:flex">
+                        <div class="md:w-1/2 bg-primary-600 text-white p-8">
+                            <h2 class="text-2xl font-bold mb-6">Neem contact met ons op</h2>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <i class="fas fa-map-marker-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold">Adres</h3>
+                                        <p>IT Boulevard 42<br>1234 AB Amsterdam</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <i class="fas fa-phone-alt text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold">Telefoon</h3>
+                                        <p>020-1234567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <i class="fas fa-envelope text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold">Email</h3>
+                                        <p>info@kamphuis-it.nl</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 mr-4">
+                                        <i class="fas fa-clock text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold">Openingstijden</h3>
+                                        <p>Maandag - Vrijdag: 08:00 - 18:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 p-8">
+                            <h3 class="text-xl font-bold mb-6">Stuur ons een bericht</h3>
+                            <form id="contact-form" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Naam</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800">
+                                </div>
+                                <div>
+                                    <label for="subject" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Onderwerp</label>
+                                    <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800">
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Bericht</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-lg transition-colors hover-scale">
+                                    Verstuur bericht
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Kamphuis-IT</h3>
+                    <p class="mb-4">De IT-dienstverlener van Nederland. Wij helpen bedrijven met al hun IT-behoeften.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Diensten</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors" onclick="navigate(event, 'diensten')">Netwerkbeheer</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" onclick="navigate(event, 'diensten')">Cyberbeveiliging</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" onclick="navigate(event, 'diensten')">Cloudoplossingen</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" onclick="navigate(event, 'diensten')">IT-ondersteuning</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Bedrijf</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors" onclick="navigate(event, 'over-ons')">Over Ons</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Team</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Vacatures</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-2 text-sm"></i>
+                            <span>IT Boulevard 42, 1234 AB Amsterdam</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-2 text-sm"></i>
+                            <span>020-1234567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-sm"></i>
+                            <span>info@kamphuis-it.nl</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-sm text-gray-400">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p>&copy; 2023 Kamphuis-IT. Alle rechten voorbehouden.</p>
+                    <div class="flex space-x-6 mt-4 md:mt-0">
+                        <a href="#" class="hover:text-white transition-colors">Privacybeleid</a>
+                        <a href="#" class="hover:text-white transition-colors">Algemene voorwaarden</a>
+                        <a href="#" class="hover:text-white transition-colors">Cookiebeleid</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation function
+        function navigate(event, sectionId) {
+            event.preventDefault();
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+            
+            // Update active nav link
+            document.querySelectorAll('nav a, #mobile-menu a').forEach(link => {
+                link.classList.remove('text-primary-600');
+                if (link.getAttribute('onclick').includes(sectionId)) {
+                    link.classList.add('text-primary-600');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Bedankt voor uw bericht! Wij nemen zo snel mogelijk contact met u op.');
+            this.reset();
+        });
+
+        // Show all sections by default (for demo purposes)
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('section').forEach(section => {
+                section.classList.remove('hidden');
+            });
+            
+            // Set home link as active
+            document.querySelector('nav a[onclick*="home"]').classList.add('text-primary-600');
+        });
+
+        // Add fade-in animation when elements come into view
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        fadeElements.forEach(element => {
+            element.classList.add('opacity-0', 'translate-y-10', 'transition-all', 'duration-500');
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
+
